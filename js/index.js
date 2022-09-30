@@ -17,6 +17,8 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
+ //hide messages section until a submission happens 
+ document.getElementById("messages").style.visibility = "hidden";
 
 //message form 
 const messageForm = document.querySelector('[name = "leave_message"]');
@@ -39,8 +41,8 @@ messageForm.addEventListener("submit", (event) =>
    
     //create section for messages
     const messageSection = document.getElementById("messages");
+    messageSection.style.visibility = "visible";
 
-   
 
    //create unordered message list
     const messageList = messageSection.querySelector("ul");
@@ -56,7 +58,7 @@ messageForm.addEventListener("submit", (event) =>
     let editButton = document.createElement("button");
     editButton.innerText = "Edit";
     editButton.type = "button";
-    
+
     editButton.addEventListener("click", (event) => {
         // redefines the innerHTML of newMessage if edit button is clicked which allows user to type new message
         var updatedMessage = window.prompt("Edit Your Message!"); 
@@ -84,4 +86,3 @@ messageForm.addEventListener("submit", (event) =>
     //reset form after user data has been "stored"
     messageForm.reset();
 });
-
