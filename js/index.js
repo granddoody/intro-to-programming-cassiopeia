@@ -63,6 +63,11 @@ messageForm.addEventListener("submit", (event) =>
         // redefines the innerHTML of newMessage if edit button is clicked which allows user to type new message
         var updatedMessage = window.prompt("Edit Your Message!"); 
         newMessage.innerHTML = ` <a href= "mailto:${email}"> ${name} </a> <span class = "msg">   wrote: ${updatedMessage}</span> ` ;
+        
+        //gives you the edit/remove option everytime message is updated
+        newMessage.appendChild(editButton);
+        newMessage.appendChild(removeButton);
+        messageList.append(newMessage);
     });
 
    //create remove button
@@ -81,8 +86,6 @@ messageForm.addEventListener("submit", (event) =>
     newMessage.appendChild(removeButton);
     messageList.append(newMessage);
   
-
-
     //reset form after user data has been "stored"
     messageForm.reset();
 });
