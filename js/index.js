@@ -20,43 +20,68 @@ for (let i = 0; i < skills.length; i++) {
 
 //message form 
 const messageForm = document.querySelector('[name = "leave_message"]');
-const submission = messageForm.addEventListener("submit", (event) =>
+messageForm.addEventListener("submit", (event) =>
 {
+
+    // store data from the form 
     const name = event.target.name.value; 
     const email = event.target.email.value;
     const message = event.target.message.value;
 
+    console.log(event);
+    //prevent page from automatic refresh when there is submission
     event.preventDefault();
 
+    //print name, email, message to console 
     console.log(name);
     console.log(email);
     console.log(message);
    
-    
-    
-  
-   const messageSection = document.getElementById("messages");
-   const messageList = messageSection.querySelector("ul");
+    //create section for messages
+    const messageSection = document.getElementById("messages");
+
    
 
+   //create unordered message list
+    const messageList = messageSection.querySelector("ul");
 
+   // create list elements to store messages
    const newMessage = document.createElement("li");
-   newMessage.innerHTML = ` <a href= "mailto:${email}"> ${name} </a> <span class = "msg"> ${message}</span> ` ;
 
+   // each list item  is a message specifying user name and email 
+   newMessage.innerHTML = ` <a href= "mailto:${email}"> ${name}  </a> <span class = "msg"> wrote: ${message}</span> ` ;
+
+
+   //create edit button 
+    let editButton = document.createElement("button");
+    editButton.innerText = "Edit";
+    editButton.type = "button";
+    
+    editButton.addEventListener("click", (event) => {
+        // redefines the innerHTML of newMessage if edit button is clicked which allows user to type new message
+        var updatedMessage = window.prompt("Edit Your Message!"); 
+        newMessage.innerHTML = ` <a href= "mailto:${email}"> ${name} </a> <span class = "msg">   wrote: ${updatedMessage}</span> ` ;
+    });
+
+   //create remove button
    let removeButton = document.createElement("button");
-   removeButton.innerHTML = "Remove";
+   removeButton.innerText = "Remove";
    removeButton.type = "button";
 
-   const removal = removeButton.addEventListener("click", (event) =>{
+    //tells button to remove parent of button when clicked 
+    removeButton.addEventListener("click", (event) =>{
        let entry = event.target.parentElement
         entry.remove();
-    })
+    });
 
+    // add to DOM
+    newMessage.appendChild(editButton);
     newMessage.appendChild(removeButton);
     messageList.append(newMessage);
+  
+
+
+    //reset form after user data has been "stored"
     messageForm.reset();
-}
- );
-
-
+});
 
