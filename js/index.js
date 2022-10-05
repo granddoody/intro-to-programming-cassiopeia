@@ -1,13 +1,16 @@
-//copyright information 
+/* -------------------------------- copyright section -----------------------------------*/
 const today = new Date (); 
 const thisYear = today.getFullYear();
 const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
 copyright.innerHTML = (`Kenya Pascascio © ${thisYear} `);
 footer.appendChild(copyright);
+/* ---------------------------------------------------------------------------------------*/
 
-//skills section
-const skills = ['HTML', 'JAVASCRIPT'];
+
+
+/* -------------------------------- skills section ---------------------------------------*/
+const skills = ['HTML', 'JAVASCRIPT', 'CSS'];
 const skillsSection = document.querySelector('#skills');
 const skillsList = skillsSection.querySelector('ul');
 
@@ -16,16 +19,22 @@ for (let i = 0; i < skills.length; i++) {
     skill.innerText = skills[i];
     skillsList.appendChild(skill);
 }
+/* -----------------------------------------------------------------------------------------*/
 
+
+
+/* ----------------------------------- leave a message form ----------------------------------*/
+
+//hide messages section until a submission happens 
+document.getElementById("messages").style.display = "none";
 
  //hide messages section until a submission happens 
  document.getElementById("messages").style.visibility = "hidden";
 
-//message form 
+
 const messageForm = document.querySelector('[name = "leave_message"]');
 messageForm.addEventListener("submit", (event) =>
 {
-
     // store data from the form 
     const name = event.target.name.value; 
     const email = event.target.email.value;
@@ -42,8 +51,7 @@ messageForm.addEventListener("submit", (event) =>
    
     //create section for messages
     const messageSection = document.getElementById("messages");
-    messageSection.style.visibility = "visible";
-
+    messageSection.style.display = "block";
 
    //create unordered message list
     const messageList = messageSection.querySelector("ul");
@@ -53,7 +61,6 @@ messageForm.addEventListener("submit", (event) =>
 
    // each list item  is a message specifying user name and email 
    newMessage.innerHTML = ` <a href= "mailto:${email}"> ${name}  </a> <span class = "msg"> wrote: ${message}</span> ` ;
-
 
    //create edit button 
     let editButton = document.createElement("button");
@@ -76,7 +83,7 @@ messageForm.addEventListener("submit", (event) =>
    removeButton.innerText = "Remove";
    removeButton.type = "button";
 
-    //tells button to remove parent of button when clicked 
+    //tells button to remove parent of button (which is the message) when clicked 
     removeButton.addEventListener("click", (event) =>{
        let entry = event.target.parentElement
         entry.remove();
@@ -90,4 +97,5 @@ messageForm.addEventListener("submit", (event) =>
     //reset form after user data has been "stored"
     messageForm.reset();
 });
+/*---------------------------------------------------------------------------------------*/
 
