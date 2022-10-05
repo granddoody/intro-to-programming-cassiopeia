@@ -17,6 +17,7 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 
+
  //hide messages section until a submission happens 
  document.getElementById("messages").style.visibility = "hidden";
 
@@ -89,3 +90,4 @@ messageForm.addEventListener("submit", (event) =>
     //reset form after user data has been "stored"
     messageForm.reset();
 });
+
