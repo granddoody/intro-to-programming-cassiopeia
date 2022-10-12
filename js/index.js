@@ -10,7 +10,7 @@ footer.appendChild(copyright);
 
 
 /* -------------------------------- skills section ---------------------------------------*/
-const skills = ['HTML', 'JAVASCRIPT', 'CSS'];
+const skills = ['HTML', 'JAVASCRIPT', 'CSS', 'MATLAB'];
 const skillsSection = document.querySelector('#skills');
 const skillsList = skillsSection.querySelector('ul');
 
@@ -20,6 +20,24 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 /* -----------------------------------------------------------------------------------------*/
+
+/* -------------------------------- experience section ---------------------------------------*/
+const experiences = [
+{position: 'Executive Assistant', company: 'Simtech Auto Repair & Diagnostic Center', time: 'Oct 2021 - Jun 2022'},
+{position: 'Project Manager', company: 'Thayer School of Engineering at Dartmouth', time: 'Jan 2021 - Jun 2021'},
+{position: 'Sante Group', company: 'Intern', time: 'Nov 2018 - Jan 2019'}
+]
+
+const experienceSection = document.querySelector('#experience');
+const experienceList = experienceSection.querySelector("ul");
+
+for (let j=0; j < 3; j++){
+    const experience  = document.createElement('li');
+    experience.innerText = `${experiences[j].position} - ${experiences[j].company} - ${experiences[j].time}`;
+    experienceList.appendChild(experience);
+}
+/* -----------------------------------------------------------------------------------------*/
+
 
 
 
@@ -62,6 +80,7 @@ messageForm.addEventListener("submit", (event) =>
     let editButton = document.createElement("button");
     editButton.innerText = "Edit";
     editButton.type = "button";
+   
 
     editButton.addEventListener("click", (event) => {
         // redefines the innerHTML of newMessage if edit button is clicked which allows user to type new message
@@ -78,6 +97,8 @@ messageForm.addEventListener("submit", (event) =>
    let removeButton = document.createElement("button");
    removeButton.innerText = "Remove";
    removeButton.type = "button";
+  
+
 
     //tells button to remove parent of button (which is the message) when clicked 
     removeButton.addEventListener("click", (event) =>{
