@@ -6,27 +6,64 @@
 <meta charset = "UTF-8">
 <title>Kenya Pascascio</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+
 </head>
 
+<header>
+    <nav>
+        <ul class = "nav-list">
+            <li class = "nav-item">
+                 <a href="#"> <strong> Kenya Pascascio</strong> </a> 
+            </li>
+            <li class ="nav-item">
+                 <a href = "#about">About</a> 
+            </li> 
+            <li class = "nav-item">
+                <a href = "#experience">Experience</a>
+            </li>
+            <li class = "nav-item">
+                <a href = "#skills">Skills</a>
+            </li>
+            <li class = "nav-item">
+                <a href = "#connect">Connect</a>
+            </li>  
+        </ul>
+    </nav>
+</header>
+
+
 <body>
+    <section id = "about">
+        <h2>About</h2>
+        <p>Aspiring software developer based in New York City. </p>  
+        <p><strong>Pronouns:</strong> she/her</p>
+    </section>
 
-<h1>Kenya Pascascio</h1>
-<!--<img src="images/kenya.JPG" alt="Picture of Kenya Pascascio" width="200" height="300"> -->
+    <section id = "experience">
+        <h2>Experience</h2>
 
-<section id = "about">
-<h2>About</h2>
-<p>Aspiring software developer based in New York City. </p>  
-</section>
-
-<section id = "experience">
-<h2>Experience</h2>
-<ul></ul>
+        <ul class = "experience-container">
+            <li class = "experience">
+                <span
+                ><strong>Executive Assistant</strong> &mdash; 
+                Simtech Auto Repair & Diagnostic Center</span
+                >   
+                <span><em>Oct 2021 -June 2022  </em></span>   
+            </li>
+            <li class = "experience">
+                <span
+                ><strong>Project Manager</strong> &mdash;
+                Thayer School of Engineering</span
+                >   
+                <span><em>Jan 2021 - Jun 2021 </em></span>   
+            </li>
+        </ul>
 </section>
 
 <section id = "skills">
     <h2>Skills</h2>
-    <ul></ul>
+    <ul class="skills-container"></ul>
 </section>
 
 <section id = "connect">
@@ -40,25 +77,32 @@
 
 <section id = "form">
     <h2> Leave a Message</h2>
-    <form name = "leave_message">
-        <label for = "name"> Name:</label>   <br>
-        <input type = "text" id ="name" placeholder = "" required> <br>
-        
-        <label for = "email"> Email Address:</label>   <br>
-        <input type = "text" id ="email" placeholder = "" required> <br>
-        
-        <label for = "message"> Message:</label> <br>
-        <textarea name = "message"  required></textarea> <br>
-    
-        <button type = "submit"> Submit</button>
+    <div class = "form-container">
+        <form name = "leave_message" class="form-area">
+        <div class = "information-label">
+            <label for = "name"> Name:</label>   
+            <input type = "text" id ="name" placeholder = "" required> 
+
+            <label for = "email"> Email Address:</label>  
+            <input type = "text" id ="email" placeholder = "" required> 
+
+            <button type = "submit"> Submit</button>
+        </div>
+       
+        <div class = "message-label">
+            <label for = "message"> Message:</label> 
+            <textarea name = "message"  required></textarea> 
+       
+        </div>
     </form>
+    </div>
 </section>
 
 <section id = "messages">
     <h2>Messages</h2>
     <ul></ul>
-
 </section>
+
 <footer></footer>
 
 <script src = "js/index.js"></script>
