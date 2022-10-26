@@ -16,28 +16,11 @@ const skillsList = skillsSection.querySelector('ul');
 
 for (let i = 0; i < skills.length; i++) {
     const skill = document.createElement('li');
+    skill.classList.add('skill')
     skill.innerText = skills[i];
     skillsList.appendChild(skill);
 }
 /* -----------------------------------------------------------------------------------------*/
-
-/* -------------------------------- experience section ---------------------------------------*/
-const experiences = [
-{position: 'Executive Assistant', company: 'Simtech Auto Repair & Diagnostic Center', time: 'Oct 2021 - Jun 2022'},
-{position: 'Project Manager', company: 'Thayer School of Engineering at Dartmouth', time: 'Jan 2021 - Jun 2021'},
-{position: 'Sante Group', company: 'Intern', time: 'Nov 2018 - Jan 2019'}
-]
-
-const experienceSection = document.querySelector('#experience');
-const experienceList = experienceSection.querySelector("ul");
-
-for (let j=0; j < 3; j++){
-    const experience  = document.createElement('li');
-    experience.innerText = `${experiences[j].position} - ${experiences[j].company} - ${experiences[j].time}`;
-    experienceList.appendChild(experience);
-}
-/* -----------------------------------------------------------------------------------------*/
-
 
 
 
@@ -76,20 +59,22 @@ messageForm.addEventListener("submit", (event) =>
 
    // create list elements to store messages
    const newMessage = document.createElement("li");
+   newMessage.classList.add ("message");
 
    // each list item  is a message specifying user name and email 
-   newMessage.innerHTML = ` <a href= "mailto:${email}"> ${name}  </a> <span class = "msg"> wrote: ${message}</span> ` ;
-
+   newMessage.innerHTML = `<div> <a href= "mailto:${email}"> ${name}  </a> <span class = "msg"> wrote: ${message}</span> </div>` ;
+    
    //create edit button 
     let editButton = document.createElement("button");
     editButton.innerText = "Edit";
     editButton.type = "button";
+    editButton.classList.add("edit-button");
    
 
     editButton.addEventListener("click", (event) => {
         // redefines the innerHTML of newMessage if edit button is clicked which allows user to type new message
         var updatedMessage = window.prompt("Edit Your Message!"); 
-        newMessage.innerHTML = ` <a href= "mailto:${email}"> ${name} </a> <span class = "msg">   wrote: ${updatedMessage}</span> ` ;
+        newMessage.innerHTML = `<div><a href= "mailto:${email}"> ${name} </a> <span class = "msg"> wrote: ${updatedMessage}</span></div> ` ;
         
         //gives you the edit/remove option everytime message is updated
         newMessage.appendChild(editButton);
@@ -101,6 +86,7 @@ messageForm.addEventListener("submit", (event) =>
    let removeButton = document.createElement("button");
    removeButton.innerText = "Remove";
    removeButton.type = "button";
+   removeButton.classList.add("remove-button");
   
 
 
