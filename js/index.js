@@ -106,3 +106,32 @@ messageForm.addEventListener("submit", (event) =>
 });
 /*---------------------------------------------------------------------------------------*/
 
+
+
+
+/*-------------------------------------AJAX ----------------------------------*/
+
+
+var githubRequest = new XMLHttpRequest();
+
+    githubRequest.open("GET","https://api.github.com/users/granddoody/repos" );
+    githubRequest.send();
+
+    githubRequest.addEventListener("load", function(){
+        var repositories = JSON.parse(githubRequest.responseText);
+        console.log(repositories);
+
+        var projectSection = document.getElementById("projects");
+        var projectList = projectSection.querySelector("ul");
+
+        for ( i = 0; i < repositories.length; i++){
+            var project = document.createElement('li');
+            project.innerText = repositories[i].name;
+            projectList.appendChild(project);
+}
+})
+
+/*---------------------------------------------------------------------------------------*/
+
+
+
