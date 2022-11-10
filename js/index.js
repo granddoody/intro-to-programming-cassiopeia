@@ -3,8 +3,10 @@ const today = new Date ();
 const thisYear = today.getFullYear();
 const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
+const copyrightContainer = document.createElement("div")
 copyright.innerHTML = (`Kenya Pascascio © ${thisYear} `);
-footer.appendChild(copyright);
+copyrightContainer.appendChild(copyright);
+footer.appendChild(copyrightContainer);
 /* ---------------------------------------------------------------------------------------*/
 
 
@@ -90,6 +92,10 @@ messageForm.addEventListener("submit", (event) =>
     //tells button to remove parent of button (which is the message) when clicked 
     removeButton.addEventListener("click", (event) =>{
        newMessage.remove();
+
+       if(messageList.childNodes.length <= 0) {
+        messageSection.style.display = "none";
+       }
     });
 
 
@@ -109,46 +115,25 @@ messageForm.addEventListener("submit", (event) =>
 });
 /*---------------------------------------------------------------------------------------*/
 
-
-
-/*-------------------------------------AJAX ----------------------------------
-
-
-var githubRequest = new XMLHttpRequest();
-
-    githubRequest.open("GET","https://api.github.com/users/granddoody/repos" );
-    githubRequest.send();
-    
-    githubRequest.addEventListener("load", function(){
-        var repositories = JSON.parse(githubRequest.responseText);
-
-        var projectSection = document.getElementById("projects");
-        var projectList = projectSection.querySelector("ul");
-
-        for ( i = 0; i < repositories.length; i++){
-            var project = document.createElement('li');
-            project.innerText = repositories[i].name;
-            projectList.appendChild(project);
-}
-})
-
----------------------------------------------------------------------------------------*/
-
-
 /*API FETCH LESSON 6-2*/
+
+
 
 fetch('https://api.github.com/users/granddoody/repos')
     .then(response => response.json())
     .then( repositories => {
-    var projectSection = document.getElementById("projects");
-    var projectList = projectSection.querySelector("ul");
-
+        var projectSection = document.getElementById("projects");
+        var projectList = projectSection.querySelector("ul");
+        
     for ( i = 0; i < repositories.length; i++){
         var project = document.createElement('li');
-        project.innerText = repositories[i].name;
+        if (repositories[i].name.includes('intro')){
+        project.innerHTML = `<a class = "project-links" href = "${repositories[i].html_url}"> ${repositories[i].name}</a>`;
         projectList.appendChild(project);
+        }
     }
 })
+
 
 
 
