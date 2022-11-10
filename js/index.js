@@ -31,6 +31,10 @@ for (let i = 0; i < skills.length; i++) {
 //hide messages section until a submission happens 
 document.getElementById("messages").style.display = "none";
 
+ //hide messages section until a submission happens 
+ document.getElementById("messages").style.visibility = "hidden";
+
+
 const messageForm = document.querySelector('[name = "leave_message"]');
 messageForm.addEventListener("submit", (event) =>
 {
@@ -118,6 +122,8 @@ messageForm.addEventListener("submit", (event) =>
 /*API FETCH LESSON 6-2*/
 
 
+/*-------------------------------------AJAX ----------------------------------*/
+
 
 fetch('https://api.github.com/users/granddoody/repos')
     .then(response => response.json())
@@ -133,6 +139,7 @@ fetch('https://api.github.com/users/granddoody/repos')
         }
     }
 })
+
 
 
 
