@@ -21,7 +21,9 @@ body {
     display: inline-block;
     padding: 0.25rem 0.75rem;
     margin-bottom: 0.5rem;
+    box-shadow: 10px 5px;
 }
+
 
 .skill:not(:last-child){
     margin-right:0.5rem;
@@ -172,15 +174,24 @@ padding:10px;
 
 
 /*Experience Styling*/
-.experience{
+.experience,
+#projects li{
     background-color: #304D51;
     border:inset;
     color:white;
     display: flex;
     flex-direction: column;
     max-width:1000px;
-    padding: 30px;
+    padding: 20px;
 }
+
+#projects a{
+    color: white;
+    margin-bottom:10px;
+}
+
+
+
 
 .experience:not(:last-child){
     margin-bottom:1rem;
@@ -203,5 +214,15 @@ footer{
     box-shadow: 5px 10px #C71585;
     padding: 10px;
     letter-spacing: 2px;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
+
 /*                           */
+
+footer img:hover,
+#projects a:hover{
+  opacity:50%;
+
+}

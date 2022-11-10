@@ -3,8 +3,10 @@ const today = new Date ();
 const thisYear = today.getFullYear();
 const footer = document.querySelector('footer');
 const copyright = document.createElement('p');
+const copyrightContainer = document.createElement("div")
 copyright.innerHTML = (`Kenya Pascascio © ${thisYear} `);
-footer.appendChild(copyright);
+copyrightContainer.appendChild(copyright);
+footer.appendChild(copyrightContainer);
 /* ---------------------------------------------------------------------------------------*/
 
 
@@ -68,7 +70,7 @@ messageForm.addEventListener("submit", (event) =>
     let editButton = document.createElement("button");
     editButton.innerText = "Edit";
     editButton.type = "button";
-    editButton.classList.add("edit-button");
+    
    
 
     editButton.addEventListener("click", (event) => {
@@ -77,61 +79,71 @@ messageForm.addEventListener("submit", (event) =>
         newMessage.innerHTML = `<div><a href= "mailto:${email}"> ${name} </a> <span class = "msg"> wrote: ${updatedMessage}</span></div> ` ;
         
         //gives you the edit/remove option everytime message is updated
-        newMessage.appendChild(editButton);
-        newMessage.appendChild(removeButton);
-        messageList.append(newMessage);
+        buttonContainer.appendChild(editButton);
+        buttonContainer.appendChild(removeButton);
+        newMessage.appendChild(buttonContainer);
+        messageList.appendChild(newMessage);
     });
 
    //create remove button
    let removeButton = document.createElement("button");
    removeButton.innerText = "Remove";
    removeButton.type = "button";
-   removeButton.classList.add("remove-button");
+   
   
 
 
     //tells button to remove parent of button (which is the message) when clicked 
     removeButton.addEventListener("click", (event) =>{
-       let entry = event.target.parentElement
-        entry.remove();
+       newMessage.remove();
+
+       if(messageList.childNodes.length <= 0) {
+        messageSection.style.display = "none";
+       }
     });
 
+
+   //create div to store buttons together
+    var buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("message-buttons");
+
     // add to DOM
-    newMessage.appendChild(editButton);
-    newMessage.appendChild(removeButton);
-    messageList.append(newMessage);
+    
+  buttonContainer.appendChild(editButton);
+  buttonContainer.appendChild(removeButton);
+  newMessage.appendChild(buttonContainer);
+ messageList.appendChild(newMessage);
   
     //reset form after user data has been "stored"
     messageForm.reset();
 });
 /*---------------------------------------------------------------------------------------*/
 
-
+/*API FETCH LESSON 6-2*/
 
 
 /*-------------------------------------AJAX ----------------------------------*/
 
 
-var githubRequest = new XMLHttpRequest();
-
-    githubRequest.open("GET","https://api.github.com/users/granddoody/repos" );
-    githubRequest.send();
-
-    githubRequest.addEventListener("load", function(){
-        var repositories = JSON.parse(githubRequest.responseText);
-        console.log(repositories);
-
+fetch('https://api.github.com/users/granddoody/repos')
+    .then(response => response.json())
+    .then( repositories => {
         var projectSection = document.getElementById("projects");
         var projectList = projectSection.querySelector("ul");
-
-        for ( i = 0; i < repositories.length; i++){
-            var project = document.createElement('li');
-            project.innerText = repositories[i].name;
-            projectList.appendChild(project);
-}
+        
+    for ( i = 0; i < repositories.length; i++){
+        var project = document.createElement('li');
+        if (repositories[i].name.includes('intro')){
+        project.innerHTML = `<a class = "project-links" href = "${repositories[i].html_url}"> ${repositories[i].name}</a>`;
+        projectList.appendChild(project);
+        }
+    }
 })
 
-/*---------------------------------------------------------------------------------------*/
+
+
+
+
 
 
 
