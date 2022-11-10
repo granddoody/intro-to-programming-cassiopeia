@@ -120,11 +120,6 @@ messageForm.addEventListener("submit", (event) =>
 /*---------------------------------------------------------------------------------------*/
 
 /*API FETCH LESSON 6-2*/
-
-
-/*-------------------------------------AJAX ----------------------------------*/
-
-
 fetch('https://api.github.com/users/granddoody/repos')
     .then(response => response.json())
     .then( repositories => {
@@ -141,8 +136,7 @@ fetch('https://api.github.com/users/granddoody/repos')
 })
 
 
-
-
+/**/
 
 
 
