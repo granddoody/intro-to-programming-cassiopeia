@@ -29,6 +29,10 @@ for (let i = 0; i < skills.length; i++) {
 //hide messages section until a submission happens 
 document.getElementById("messages").style.display = "none";
 
+ //hide messages section until a submission happens 
+ document.getElementById("messages").style.visibility = "hidden";
+
+
 const messageForm = document.querySelector('[name = "leave_message"]');
 messageForm.addEventListener("submit", (event) =>
 {
@@ -106,6 +110,7 @@ messageForm.addEventListener("submit", (event) =>
     messageForm.reset();
 });
 /*---------------------------------------------------------------------------------------*/
+
 
 
 /*------------------------------project sections with API fetch-----------------------------------------*/
