@@ -10,7 +10,6 @@ footer.appendChild(copyrightContainer);
 /* ---------------------------------------------------------------------------------------*/
 
 
-
 /* -------------------------------- skills section ---------------------------------------*/
 const skills = ['HTML', 'JAVASCRIPT', 'CSS', 'MATLAB'];
 const skillsSection = document.querySelector('#skills');
@@ -23,7 +22,6 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }
 /* -----------------------------------------------------------------------------------------*/
-
 
 
 /* ----------------------------------- leave a message form ----------------------------------*/
@@ -67,8 +65,6 @@ messageForm.addEventListener("submit", (event) =>
     editButton.innerText = "Edit";
     editButton.type = "button";
     
-   
-
     editButton.addEventListener("click", (event) => {
         // redefines the innerHTML of newMessage if edit button is clicked which allows user to type new message
         var updatedMessage = window.prompt("Edit Your Message!"); 
@@ -86,9 +82,6 @@ messageForm.addEventListener("submit", (event) =>
    removeButton.innerText = "Remove";
    removeButton.type = "button";
    
-  
-
-
     //tells button to remove parent of button (which is the message) when clicked 
     removeButton.addEventListener("click", (event) =>{
        newMessage.remove();
@@ -97,7 +90,6 @@ messageForm.addEventListener("submit", (event) =>
         messageSection.style.display = "none";
        }
     });
-
 
    //create div to store buttons together
     var buttonContainer = document.createElement("div");
@@ -115,10 +107,8 @@ messageForm.addEventListener("submit", (event) =>
 });
 /*---------------------------------------------------------------------------------------*/
 
-/*API FETCH LESSON 6-2*/
 
-
-
+/*------------------------------project sections with API fetch-----------------------------------------*/
 fetch('https://api.github.com/users/granddoody/repos')
     .then(response => response.json())
     .then( repositories => {
@@ -133,7 +123,7 @@ fetch('https://api.github.com/users/granddoody/repos')
         }
     }
 })
-
+/*---------------------------------------------------------------------------------------*/
 
 
 

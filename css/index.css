@@ -1,16 +1,28 @@
-
-
 body {
-    display:flex;
-    flex-direction: column;
     background-color:  #E2DAC1;
     color : #304D51;
     font-family: 'Work Sans', sans-serif;
 }
 
+#about,
+#experience, 
+#skills,
+#projects,
+#form{
+border: solid 4px  #FFFF00;
+border-radius: 20px 20px 10px;
+margin-bottom: 50px;
+padding:30px;
+margin-right:50px;
+ }
+
+ #about{
+    margin-top: 50px;
+ }
+
+
 .container{
     margin: 20px 0px 20px 50px;
-
 }
 
 /*Skill Styling*/
@@ -24,18 +36,14 @@ body {
     box-shadow: 10px 5px;
 }
 
-
 .skill:not(:last-child){
     margin-right:0.5rem;
 }
-/*                           */
-
 
 /*Connect Styling*/
 #connect li{
     display: inline-block;
 }
-/*                           */
 
 /*Message Section Styling*/
 #messages button {
@@ -45,7 +53,6 @@ body {
     text-align: center;
     border-radius: 10px 10px 10px;
 }
-
 
 .remove-button{
     border: 5px solid red;
@@ -64,9 +71,6 @@ body {
     border-bottom: 2px solid #304D51;
     max-width: 1000px;
   }
-  
-/*                           */
-
 
 /*Heading Styling*/
 h1,h2{
@@ -74,12 +78,10 @@ h1,h2{
     color:#C71585;
     margin-bottom: 1rem;
     font-weight:800;
+    font-size:30px;
 }
-/*                           */
 
 /*Leave A Message Form Styling*/
-
-
 .form-container{
     display:flex;
     max-width:600px;
@@ -131,46 +133,57 @@ background: #C71585;
 padding:10px;
 }
 
-
-/*                           */
-
-
-
 /*Nav Bar Styling*/
 
-.nav-list{
-    margin:0; 
-    padding:2rem 0; 
-   
+nav{
+    padding:5px 20px;
     display:flex;
-    justify-content:flex-end; 
     align-items:center; 
     background-color: #FFFF00;
     box-shadow: 5px 10px #C71585;
 }
 
-.nav-item{
-    list-style: none;
-    margin-right:2rem;
-}
-
-.nav-item a{
-    text-decoration:none;
+nav a{
     color: #304D51;
+    text-decoration: none;
 }
 
-.nav-item:first-child{
-    margin-right:auto;
-    margin-left:2rem;
-    font-size:20px;
-    letter-spacing: 2px;
-}
-
-.nav-item a:hover{
+nav a:hover{
     color: #C71585;
-    transition: all 200ms ease-in;
 }
-/*                           */
+
+.logo {
+    flex: 1;
+}
+
+.logo a {
+    display: flex;
+    align-items:center;
+    font-size: 20px;
+}
+
+.logo a:hover{
+    color: #C71585;
+}
+
+.logo img{
+    width:60px;
+    border-radius:50%;
+    margin-right:10px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+.menu li{
+    padding:15px 10px; 
+    font-size:16px;
+}
 
 
 /*Experience Styling*/
@@ -190,23 +203,16 @@ padding:10px;
     margin-bottom:10px;
 }
 
-
-
-
 .experience:not(:last-child){
     margin-bottom:1rem;
 }
 
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width:600px) {
     .experience{
         flex-direction: row;
         justify-content:space-between;
-     
     }
 }
-/*                           */
-
 
 /*Footer Styling*/
 footer{
@@ -219,10 +225,7 @@ footer{
     justify-content: space-between;
 }
 
-/*                           */
-
 footer img:hover,
 #projects a:hover{
   opacity:50%;
-
 }
